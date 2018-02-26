@@ -44,3 +44,8 @@ subprojects {
         testCompile "org.assertj:assertj-core:3.8.0"
     }
 }
+
+ext {
+    springCloudDependenciesVersion = "Edgware.RELEASE"
+    springCloudServicesVersion = "1.6.0.RELEASE"
+}
