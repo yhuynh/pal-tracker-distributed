@@ -6,4 +6,3 @@ applications:
   instances: 1
   services:
   - tracker-timesheets-database
-  - tracker-service-registry
