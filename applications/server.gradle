@@ -22,12 +22,19 @@ dependencies {
 
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
-    compile ("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker") {
-        exclude group: 'org.springframework.integration', module: 'spring-integration-core'
-    }
+    compile ("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
 
-    compile group: 'org.springframework.integration', name: 'spring-integration-core', version: '4.3.10.RELEASE'
-    compile group: 'org.springframework.integration', name: 'spring-integration-amqp', version: '4.3.10.RELEASE'
+    compile "org.springframework.cloud:spring-cloud-starter-oauth2"
+    compile "io.pivotal.spring.cloud:spring-cloud-sso-connector:$springCloudSsoVersion"
 
 }
+
+bootRun.environment([
+        "APPLICATION_OAUTH_ENABLED": true,
+        "SECURITY_OAUTH2_CLIENT_CLIENT_ID": "tracker-client",
+        "SECURITY_OAUTH2_CLIENT_CLIENT_SECRET": "supersecret",
+        "SECURITY_USER_NAME": "actuator",
+        "SECURITY_USER_PASSWORD": "operations4red"
+])
+
 
