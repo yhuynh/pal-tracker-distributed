@@ -22,6 +22,12 @@ dependencies {
 
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
+    compile ("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker") {
+        exclude group: 'org.springframework.integration', module: 'spring-integration-core'
+    }
+
+    compile group: 'org.springframework.integration', name: 'spring-integration-core', version: '4.3.10.RELEASE'
+    compile group: 'org.springframework.integration', name: 'spring-integration-amqp', version: '4.3.10.RELEASE'
 
 }
 
